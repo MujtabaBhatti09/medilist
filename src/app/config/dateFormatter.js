@@ -6,7 +6,7 @@ export const formatDateToDisplay = (dateString) => {
     return `${day}/${month}/${year}`;
 };
 
-export const todayDate = _ => {
+export const todayDate = () => {
     return formatDateToDisplay(new Date())
 }
 
