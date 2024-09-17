@@ -14,21 +14,20 @@ import { FaPercent } from "react-icons/fa";
 
 export default function ReturnMedicine() {
 
-    const [openModal, setOpenModal] = useState(false)
     const [selectedProduct, setSelectedProduct] = useState(null)
     const [tableData, setTableData] = useState([])
     const [openResetModal, setOpenResetModal] = useState(false)
     const productRef = useRef()
-    const [boxPrice, setBoxPrice] = useState(0)
-    const [quantities, setQuantites] = useState(0)
-    const [expire, setExpire] = useState(null)
-    const [milligram, setMilligram] = useState(0)
     const [lessPercentage, setLessPercentage] = useState(0)
     const [name, setName] = useState("")
 
+    const boxPrice = 0
+    const quantities = 0
+    const expire = 0
+    const milligram = 0
+
     const handleCloseModal = e => {
         e.preventDefault()
-        setOpenModal(false)
         setOpenResetModal(false)
     }
 
@@ -172,6 +171,7 @@ export default function ReturnMedicine() {
     const handleSubmit = async e => {
         e.preventDefault()
         const res = await axios.post("/api/prodapi", {
+            bid: Math.floor(Math.random() * 900000),
             products: tableData,
             total: calculateTotalCost() || 0,
             percentage: lessPercentage || 0,
@@ -201,7 +201,7 @@ export default function ReturnMedicine() {
         <>
             <h1 className="text-center w-full font-semibold text-3xl dark:bg-gray-900 bg-custom-white sticky top-0 z-20 text-custom-blue-light pb-3">Create Medicine List</h1>
             <div className="container py-5 px-6 divide-y divide-gray-600">
-                <ToastContainer autoClose={2000} position="top-center" draggable draggablePercent={40} />
+                <ToastContainer autoClose={2000} position="top-center" draggable />
                 {openResetModal && (
                     <CustomModal
                         mainModal={true}
