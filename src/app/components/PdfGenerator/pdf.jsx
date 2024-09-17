@@ -42,32 +42,6 @@ const PdfGenerator = ({ data, fileName, reportName, medi }) => {
       );
     };
 
-    // Footer with company info
-    const addFooterPageCompany = (doc) => {
-      const pageHeight = doc.internal.pageSize.getHeight();
-      const pageWidth = doc.internal.pageSize.getWidth();
-      doc.setFontSize(10);
-      doc.setTextColor('#2B3990');
-
-      const companyName = `Powered By Indus-Technetronic`;
-      const phoneNumber = `Phone: +92 336-387-832-9`;
-
-      const margin = 10;
-      const companyNameX = margin;
-      const phoneNumberX = pageWidth - margin - doc.getTextWidth(phoneNumber); // right-aligned
-
-      // Footer text with company information
-      doc.text(companyName, companyNameX, pageHeight - 5);
-
-      // Add phone number text without showing the WhatsApp link
-      doc.text(phoneNumber, phoneNumberX, pageHeight - 5);
-
-      // Add an invisible link area over the phone number to open WhatsApp
-      doc.link(phoneNumberX, pageHeight - 10, doc.getTextWidth(phoneNumber), 10, {
-        url: `https://wa.me/923363878329`,
-      });
-    };
-
     if (fileName.split("-")[0] === "medicine") {
       const headers = [['S No.', 'Quantity', 'Product', 'Mg', 'Retail', 'Unit Price', 'Expiry', 'Sub', 'Total', 'Percent', 'Percent Amount', 'Grand Total']];
 

@@ -13,11 +13,12 @@ export default function MedicineList() {
 
     const [isLoading, setIsLoading] = useState(true);
     const [medicineList, setMedicineList] = useState([]);
-    const [viewData, setViewData] = useState(null)
-    const [modal, setModal] = useState(false)
+    // const [viewData, setViewData] = useState(null)
+    // const [modal, setModal] = useState(false)
 
 
     useEffect(() => {
+        
         const fetchMedicineList = async () => {
             setIsLoading(false);
             try {
@@ -40,15 +41,15 @@ export default function MedicineList() {
         return <Loader />;
     }
 
-    const view = async value => {
-        console.log(value);
-        setViewData(value);
-        setModal(true)
-    }
+    // const view = async value => {
+    //     console.log(value);
+    //     setViewData(value);
+    //     setModal(true)
+    // }
 
-    const handlecloseModal = _ => {
-        setModal(false)
-    }
+    // const handlecloseModal = _ => {
+    //     setModal(false)
+    // }
 
     return (
         <>
