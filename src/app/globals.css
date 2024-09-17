@@ -1,23 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 214, 219, 220;
+  --text-color: #000000;
+  /* Default text color */
+  --title-color: #000000;
+  /*Light Mode Hover Effect*/
+
+  .hover-fill-bottom-to-top {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hover-fill-bottom-to-top::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #2B3990;
+    transition: height 0.3s ease;
+  }
+
+  .hover-fill-bottom-to-top:hover::after {
+    height: 100%;
+  }
+
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 14, 22, 34;
+    --background-end-rgb: 14, 22, 34;
+    --text-color: #ffffff;
+    /* Text color in dark mode */
+    --title-color: #ffffff;
+    /*Light Mode Hover Effect*/
+
+    .hover-fill-bottom-to-top {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hover-fill-bottom-to-top::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: #1C75BC;
+      transition: height 0.3s ease;
+    }
+
+    .hover-fill-bottom-to-top:hover::after {
+      height: 100%;
+      z-index: 1;
+    }
+
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb)) linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) no-repeat fixed;
+  background-size: contain;
+  font-family: 'Poppins', sans-serif;
+
 }
 
 @layer utilities {
@@ -25,3 +83,19 @@ body {
     text-wrap: balance;
   }
 }
+
+::-webkit-scrollbar {
+  width: .6rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4rem;
+  background-color: rgba(112, 111, 111, 0.5);
+}
+
+::selection {
+  background: white;
+  color: black;
+}
+
+/*Light Mode Hover Effect*/
