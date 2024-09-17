@@ -1,4 +1,4 @@
-const db = require('@/app/dbConfig');  // Adjust the path as necessary
+const db = require('./dbConfig');  // Adjust the path as necessary
 const { parseDateToVerify } = require('./config/dateFormatter');
 
 const myprods = async value => {
