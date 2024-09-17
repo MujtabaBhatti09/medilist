@@ -1,13 +1,12 @@
 import { arrayVerification } from '../../config/globalFunctions';
 import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 
-const SearchSelect = forwardRef(({ options, onSelect, sale, createProduct, onNewProductChange, disableInput }, ref) => {
+const SearchSelect = forwardRef(({ options, onSelect, sale, disableInput }, ref) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredOptions, setFilteredOptions] = useState(options);
   const [showDropdown, setShowDropdown] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const dropdownRef = useRef(null);
-  const [mouseOver, setMouseOver] = useState(false)
 
   useEffect(() => {
     setFilteredOptions(
