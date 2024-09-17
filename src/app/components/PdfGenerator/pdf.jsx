@@ -1,9 +1,8 @@
 "use client"
-import { formatDateToDisplay } from '@/app/utils/config/dateFormatter';
-import { numberFormat } from '@/app/utils/config/globalFunctions';
-import React, { useRef } from 'react';
+
+import { formatDateToDisplay } from '../../config/globalFunctions';
+import React from 'react';
 import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import 'jspdf-autotable';
 
 const PdfGenerator = ({ data, fileName, reportName, medi }) => {
